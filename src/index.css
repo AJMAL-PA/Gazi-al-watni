@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply overflow-x-hidden w-full m-0 p-0;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-inter bg-slate-950 text-slate-200;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bebas tracking-tight font-normal leading-tight;
+  }
+}
+
+
+@layer components {
+  .glass-card {
+      background: rgba(21, 32, 49, 0.4);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .metallic-btn {
+      background: linear-gradient(135deg, #b9c7e4 0%, #74829d 100%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+  }
+
+  .metallic-btn:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 20px rgba(185, 199, 228, 0.3);
+  }
+
+  .shimmer-hover:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .section-fade {
+      background: linear-gradient(to bottom, transparent, #081425 10%, #081425 90%, transparent);
+  }
+}

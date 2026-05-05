@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SteelCore Global | Precision Engineering</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b9c7e4",
+                        "outline-variant": "#44474d",
+                        "surface-container-low": "#111c2d",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "surface-container-high": "#1f2a3c",
+                        "on-primary-fixed": "#0d1c32",
+                        "tertiary-container": "#141a1f",
+                        "surface": "#081425",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "on-secondary-container": "#a7b6cc",
+                        "surface-dim": "#081425",
+                        "surface-container-lowest": "#040e1f",
+                        "outline": "#8f9097",
+                        "on-tertiary-fixed": "#161c22",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "primary": "#b9c7e4",
+                        "on-background": "#d8e3fb",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "secondary-container": "#39485a",
+                        "inverse-on-surface": "#263143",
+                        "on-secondary": "#233143",
+                        "inverse-surface": "#d8e3fb",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#2b3137",
+                        "surface-bright": "#2f3a4c",
+                        "on-surface-variant": "#c5c6cd",
+                        "tertiary-fixed": "#dde3eb",
+                        "surface-container-highest": "#2a3548",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#d4e4fa",
+                        "on-surface": "#d8e3fb",
+                        "on-tertiary-container": "#7c838a",
+                        "primary-container": "#0a192f",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#2a3548",
+                        "surface-container": "#152031",
+                        "tertiary": "#c1c7cf",
+                        "on-primary-container": "#74829d",
+                        "inverse-primary": "#515f78",
+                        "surface-tint": "#b9c7e4",
+                        "secondary": "#b9c8de",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed-variant": "#39475f",
+                        "on-primary": "#233148",
+                        "background": "#081425"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin": "40px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(21, 32, 49, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .metallic-btn {
+            background: linear-gradient(135deg, #b9c7e4 0%, #74829d 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .metallic-btn:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 0 20px rgba(185, 199, 228, 0.3);
+        }
+
+        .shimmer-hover:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .section-fade {
+            background: linear-gradient(to bottom, transparent, #081425 10%, #081425 90%, transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-primary-container">
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 w-full z-50 border-b border-white/10 bg-slate-950/40 backdrop-blur-2xl shadow-2xl shadow-black/40">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+            <div class="text-2xl font-black tracking-tighter text-slate-50">STEELCORE GLOBAL</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-inter tracking-wide uppercase text-xs font-bold text-white border-b-2 border-slate-300 pb-1"
+                    href="#">Solutions</a>
+                <a class="font-inter tracking-wide uppercase text-xs font-bold text-slate-400 hover:text-white transition-colors duration-500"
+                    href="#">Inventory</a>
+                <a class="font-inter tracking-wide uppercase text-xs font-bold text-slate-400 hover:text-white transition-colors duration-500"
+                    href="#">Logistics</a>
+                <a class="font-inter tracking-wide uppercase text-xs font-bold text-slate-400 hover:text-white transition-colors duration-500"
+                    href="#">Sustainability</a>
+                <a class="font-inter tracking-wide uppercase text-xs font-bold text-slate-400 hover:text-white transition-colors duration-500"
+                    href="#">Investors</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden lg:block text-slate-200 font-inter tracking-wide uppercase text-xs font-bold hover:text-white transition-colors">Client
+                    Portal</button>
+                <button
+                    class="metallic-btn px-6 py-2.5 rounded-full text-primary-container font-inter tracking-wide uppercase text-xs font-extrabold scale-95 active:scale-90 transition-transform">Request
+                    Quote</button>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover"
+                data-alt="A cinematic, wide-angle shot of a massive steel manufacturing facility at night. The scene is dominated by deep navy blue shadows and striking metallic silver highlights from high-intensity industrial lamps. Glowing molten metal cascades in the distance, providing a warm amber contrast to the cold, high-tech industrial aesthetic of the structural steel beams. The atmosphere is powerful, precise, and technologically advanced, reflecting a premium global brand."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQzg6b3tmzk4OsdwdF6Mzq6fVpRCOsygltBiwXfcbzGdGSiu4Xvg61JBDznf2vZIDEjsYyQpy15qWo4URVmc738DwbVUfUNjop5MT0zeDWwrbPabk7ClhmPuULipcFpBSsE5cfBvt2UIyH244ytjd30hfsAkrP97TvysW343QKn58f951REZ21jChpBmtR9oBqpQ6IcpcuO9I7gFrkot1OTQFP5bhkPWaSOu9GdAFA6GuuZoUTYA3ydccG_7RNm3qbddiwxHMymz78" />
+            <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+            <div class="max-w-2xl">
+                <span
+                    class="inline-block px-4 py-1 mb-6 rounded-full glass-card border-white/20 text-primary font-label-caps uppercase tracking-widest">Global
+                    Logistics Excellence</span>
+                <h1 class="font-display-xl text-on-background mb-8 leading-tight">Precision Steel Solutions for Modern
+                    Industries</h1>
+                <p class="font-body-lg text-on-surface-variant mb-10 max-w-lg">Engineered for resilience. SteelCore
+                    Global provides institutional-grade manufacturing and logistics for the world's most demanding
+                    infrastructure projects.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="metallic-btn px-8 py-4 rounded-lg text-primary-container font-inter tracking-wide uppercase text-sm font-black flex items-center gap-2">
+                        Get a Quote <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                    <button
+                        class="px-8 py-4 rounded-lg glass-card text-on-background border border-white/20 font-inter tracking-wide uppercase text-sm font-bold hover:bg-white/10 transition-all">
+                        Our Products
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="py-section-gap relative">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="glass-card p-12 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-10">
+                        <span class="material-symbols-outlined text-9xl">factory</span>
+                    </div>
+                    <span class="text-primary font-label-caps mb-4 block">OUR MISSION</span>
+                    <h2 class="font-headline-lg text-white mb-6">Upholding the Integrity of Global Infrastructure</h2>
+                    <p class="font-body-md text-on-surface-variant mb-8">SteelCore Global combines heritage precision
+                        with digital logistics. We don't just manufacture steel; we engineer the foundations of modern
+                        trade with absolute transparency and unwavering strength.</p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-3xl font-black text-white mb-1">40M+</div>
+                            <div class="text-xs font-label-caps text-on-tertiary-container">TONS PRODUCED</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-white mb-1">120+</div>
+                            <div class="text-xs font-label-caps text-on-tertiary-container">GLOBAL PARTNERS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="glass-card p-8 rounded-2xl shimmer-hover">
+                        <span class="material-symbols-outlined text-primary mb-4" data-weight="fill">verified</span>
+                        <h3 class="font-headline-md text-white mb-2">Institutional Quality</h3>
+                        <p class="text-on-surface-variant">Every ton of steel is tracked through our proprietary digital
+                            ledger, ensuring 100% compliance with international safety standards.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl shimmer-hover">
+                        <span class="material-symbols-outlined text-primary mb-4" data-weight="fill">eco</span>
+                        <h3 class="font-headline-md text-white mb-2">Sustainable Core</h3>
+                        <p class="text-on-surface-variant">Leading the transition to carbon-neutral manufacturing with
+                            advanced electric arc furnace technology and closed-loop recycling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products Bento Grid -->
+    <!-- <section class="py-section-gap bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-primary font-label-caps mb-4 block">CATALOGUE</span>
+                    <h2 class="font-headline-lg text-white">Industrial Solutions</h2>
+                </div>
+                <a class="text-primary hover:text-white transition-colors font-label-caps border-b border-primary pb-1"
+                    href="#">VIEW ALL SPECIFICATIONS</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+           
+                <div class="md:col-span-8 glass-card rounded-3xl overflow-hidden relative group cursor-pointer">
+                    <img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                        data-alt="A detailed, macro view of high-quality cold-rolled steel coils stacked in a pristine, futuristic warehouse. The lighting is sharp and clinical, highlighting the brushed metallic texture and the perfectly circular geometry of the coils. Subtle blue lens flares and a deep navy background create a sense of vast, organized industrial capacity and premium quality control."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmYbTpJCBeCqrP4K9WzouiN73YNfCFXkk6UewtKFBe7eUKsB9MH-TJeemOyO-Eda58SI4uYR22pHIlKlUbNvrtW4iC7YlUrL8qNGmBsph_cosVssqh0MKtuAjrBcT5oHrNeLiotUw1krNsxgBAU9h7e-N3GhSvggpSZ3qP7DQYmSSlGr1cMpiYYGEp027vpiuvj_hWtSkHMGod4Dr5hGPso2Z1QtBrFQBTMf_miAmbYsA5YOJenTqeipiqdRWT3WlWCBtC61p_Vuzt" />
+                    <div
+                        class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-surface to-transparent">
+                        <h3 class="text-3xl font-black text-white mb-2">Steel Coils</h3>
+                        <p class="text-on-surface-variant max-w-md">Premium cold-rolled and hot-dip galvanized coils for
+                            high-precision manufacturing.</p>
+                    </div>
+                </div>
+              
+                <div class="md:col-span-4 glass-card rounded-3xl overflow-hidden relative group cursor-pointer">
+                    <img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                        data-alt="Modern geometric structural steel beams arranged in an abstract, architectural pattern. The image features high-contrast lighting with silver edges catching the light against a dark, navy blue void. The mood is structural, architectural, and sophisticated, emphasizing the strength and precision of the engineering components."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5ZjL5YGGyB9XYWXBOgc4DPF9DKSVJuG5ymS_38j27_f5t577mS5HumXYEHj8ZM37ypvnbcSTL9GTedoSeaMnoaxy_39jqMYow2IwFSZZMot9no4TVWFQUqH4bDVdpNsTge4Zj-nHJyAFzVC14cllLGJsZSRP8PhWDwOJhlpRV2Ij_D0r45G4zCDnQxRsm2jFz6PPua5Da4jMTNkhcAQu1la1dNiBc-YHkH41cyLFZV06VkZpd9K4VCp9U2FOgJ33Q_QxY_HCUSrq8" />
+                    <div
+                        class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-surface to-transparent">
+                        <h3 class="text-xl font-bold text-white mb-1">Structural Steel</h3>
+                        <p class="text-xs text-on-surface-variant">I-Beams, channels, and angles.</p>
+                    </div>
+                </div>
+             
+                <div class="md:col-span-4 glass-card rounded-3xl overflow-hidden relative group cursor-pointer">
+                    <img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                        data-alt="A row of precision-manufactured steel pipes and tubes with a polished, reflective finish. The image uses a shallow depth of field to focus on the leading edge of a pipe, showing its perfect circularity and wall thickness. The color palette is dominated by gunmetal grey and deep navy, reflecting a professional industrial setting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-dthFYuZhgQbtRqsyT7-y5zzwVu7F1ay_Sx1bYmXbOUr4ZUyyVERdCJKk6RFaNdhf6d6JKR-thAHqtOAn0_-x35W49H3BG5kbxUfpym6DPmASDQKSvv7UV9fDfgupcaMm1ZIRVLE1YinhV0sfwpLshH1oHnwQ_KyI8sGPQndXL1liQw7eYjxbQHIkLjJJoN7pa-UzricX1gfrPGy3Jw8FjxTEG3nVIpgxssk5Ygx_067pVPQfZmfx84bcdAkQnGiJwofFgPvN21Ca" />
+                    <div
+                        class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-surface to-transparent">
+                        <h3 class="text-xl font-bold text-white mb-1">Pipes &amp; Tubes</h3>
+                        <p class="text-xs text-on-surface-variant">Seamless hydraulic &amp; structural tubing.</p>
+                    </div>
+                </div>
+             
+                <div class="md:col-span-8 glass-card rounded-3xl overflow-hidden relative group cursor-pointer">
+                    <img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
+                        data-alt="Large-scale industrial steel sheets stacked vertically, creating a repetitive linear pattern of metallic edges. The lighting is dramatic, with side-lighting emphasizing the flatness and thickness of the sheets. The overall aesthetic is minimalist, dark, and high-end, suggesting bulk capacity and reliability."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbz0eHa7A8Dl_BFi_cfddi6-mvYHuCJr-vwOLQFXFxNb6AE0KHUUUhpJuuqMVDbsuUsFa-JafK4WMeTie9R2s1vjgSX1c1IyqnuGevkCo2gb2gFN79UZgxin9MsC6VpcbL_Z40kN7fwlodNP1T0bqIMl0_B7j60c4Y4-6U-oIly5oRVyfcbN06J_K2Mttqd7-em7cURTrSYw0JomTKEgCgbXS00tP8kRk3_zdQi3_SqV05ED93ifTBYQhScwm-0nBx6vJVTKVDDIlb" />
+                    <div
+                        class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-surface to-transparent">
+                        <h3 class="text-2xl font-bold text-white mb-2">Industrial Sheets</h3>
+                        <p class="text-sm text-on-surface-variant">Custom-cut heavy plates and specialized alloy sheets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Industries Grid -->
+    <section class="py-section-gap relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <span class="text-primary font-label-caps mb-4 block uppercase tracking-widest">Sectors</span>
+                <h2 class="font-headline-lg text-white">Empowering Global Growth</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 glass-card rounded-2xl flex items-center justify-center shimmer-hover transition-transform group-hover:-translate-y-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Construction</h3>
+                    <p class="text-sm text-on-surface-variant">Foundational steel for skyscrapers and civic
+                        infrastructure.</p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 glass-card rounded-2xl flex items-center justify-center shimmer-hover transition-transform group-hover:-translate-y-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">directions_car</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Automotive</h3>
+                    <p class="text-sm text-on-surface-variant">Lightweight, high-strength alloys for modern mobility.
+                    </p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 glass-card rounded-2xl flex items-center justify-center shimmer-hover transition-transform group-hover:-translate-y-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Manufacturing</h3>
+                    <p class="text-sm text-on-surface-variant">Component materials for heavy machinery and tooling.</p>
+                </div>
+                <div class="text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 glass-card rounded-2xl flex items-center justify-center shimmer-hover transition-transform group-hover:-translate-y-2">
+                        <span class="material-symbols-outlined text-primary text-3xl">oil_barrel</span>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Infrastructure</h3>
+                    <p class="text-sm text-on-surface-variant">Pipeline systems and renewable energy frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section class="py-section-gap bg-surface-container">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <div class="glass-card p-10 rounded-3xl border-primary/20">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">shield_with_heart</span>
+                    <h3 class="text-xl font-bold text-white mb-4">Precision Quality</h3>
+                    <p class="text-on-surface-variant text-sm">Every production batch undergoes a 12-point electronic
+                        inspection to guarantee 0.01mm tolerance levels.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">payments</span>
+                    <h3 class="text-xl font-bold text-white mb-4">Direct Pricing</h3>
+                    <p class="text-on-surface-variant text-sm">Eliminating intermediaries to provide transparent,
+                        mill-direct pricing for institutional-scale procurement.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">local_shipping</span>
+                    <h3 class="text-xl font-bold text-white mb-4">Global Network</h3>
+                    <p class="text-on-surface-variant text-sm">Integrated logistics with real-time tracking across 40+
+                        maritime and rail hubs globally.</p>
+                </div>
+                <div class="glass-card p-10 rounded-3xl">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">support_agent</span>
+                    <h3 class="text-xl font-bold text-white mb-4">Expert Support</h3>
+                    <p class="text-on-surface-variant text-sm">Dedicated account managers with metallurgical engineering
+                        backgrounds available 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Process Section -->
+    <section class="py-section-gap">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="font-headline-lg text-white mb-20 text-center">Seamless Fulfillment Cycle</h2>
+            <div class="relative">
+                <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-white/10 z-0"></div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+                    <div class="text-center group">
+                        <div
+                            class="w-20 h-20 mx-auto bg-surface-container-highest rounded-full flex items-center justify-center border-4 border-background mb-6 ring-1 ring-primary/30 group-hover:ring-primary transition-all">
+                            <span class="font-black text-primary text-xl">01</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Inquiry</h4>
+                        <p class="text-xs text-on-surface-variant">Detailed requirement assessment and volume
+                            forecasting.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div
+                            class="w-20 h-20 mx-auto bg-surface-container-highest rounded-full flex items-center justify-center border-4 border-background mb-6 ring-1 ring-white/10 group-hover:ring-primary transition-all">
+                            <span class="font-black text-primary text-xl">02</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Processing</h4>
+                        <p class="text-xs text-on-surface-variant">Custom fabrication or mill-direct inventory
+                            allocation.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div
+                            class="w-20 h-20 mx-auto bg-surface-container-highest rounded-full flex items-center justify-center border-4 border-background mb-6 ring-1 ring-white/10 group-hover:ring-primary transition-all">
+                            <span class="font-black text-primary text-xl">03</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Quality Check</h4>
+                        <p class="text-xs text-on-surface-variant">Rigorous metallurgical testing and digital
+                            verification.</p>
+                    </div>
+                    <div class="text-center group">
+                        <div
+                            class="w-20 h-20 mx-auto bg-surface-container-highest rounded-full flex items-center justify-center border-4 border-background mb-6 ring-1 ring-white/10 group-hover:ring-primary transition-all">
+                            <span class="font-black text-primary text-xl">04</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Delivery</h4>
+                        <p class="text-xs text-on-surface-variant">Global multi-modal logistics with last-mile
+                            precision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Grid -->
+    <section class="py-section-gap bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="font-headline-lg text-white mb-12">Signature Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        data-alt="A modern glass and steel skyscraper reaching into a dark navy twilight sky. The camera looks up from the base, emphasizing the structural steel elements that form the skeleton of the building. Sharp reflections on the glass panels and a futuristic, high-contrast edit highlight the premium architectural quality and engineering prowess."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwgJ8nHYgBuUXK-EcFmyEvRTplpiXcTXGlQn_JDv_ENTge11PUK1MJ04Kf2CKBCwN7xX3ySD2-Y1JfOZaCnXr7DtZwW4WS9n9hdw7dv_A4txvi5_yPXOgrlZtCvm_sfbO262r0wK-9hSwtgfERPnSJTAsOrkY4UyDEyccRZd_DbcXEfbWtWRic1f6SA-IY3O4hPI3v7crZeH_RcfttedL4rLkY8NUb8xcUDt9JoDZRHIHE3pOizICGrd_knBoUzuydA6viqVoK4pvw" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent p-8 flex flex-col justify-end">
+                        <span class="text-xs font-label-caps text-primary mb-2">COMMERCIAL</span>
+                        <h3 class="text-xl font-bold text-white">The Meridian Tower</h3>
+                        <p class="text-sm text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">12,000
+                            tons of structural I-beams and custom cladding.</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        data-alt="A vast suspension bridge at dusk, illuminated by glowing orange lights that reflect on the metallic cables and deep blue water below. The intricate steel work and cable stays are captured with high precision, showing the strength and elegance of large-scale infrastructure projects. The mood is serene yet monumental."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKcUiGucReV1F_hZEgnZm60xSg69kESPBUEJ6UGOT5r5j5DbwzqZu4r23I0IxiAIQB0sZ7glpV83yy0iJ2IY4JIlF38XPuXU45PlGLhqSO3uupcHrnCdXTmpbwbhlnuN7Gqt2GdtmX7lPUU3mu_qvdffZ6suF1Wx5svYXw6Bka3FdEI_zb4wH3Z5YoBllUEkoFYzjP9QzdEc6k3SCRSZ8hZYbm1nUwq20eWcXGojGEzPGj5CGgdXhWSxO3-U7eT4YotiY2sPXeqXka" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent p-8 flex flex-col justify-end">
+                        <span class="text-xs font-label-caps text-primary mb-2">INFRASTRUCTURE</span>
+                        <h3 class="text-xl font-bold text-white">East-Link Bridge</h3>
+                        <p class="text-sm text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Corrosion-resistant marine-grade alloy plating.</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-3xl">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        data-alt="A clean, futuristic industrial plant featuring complex networks of polished steel piping and pressure vessels. The lighting is bright and industrial, with high-tech sensors and control panels visible in the background. The scene conveys a sense of high-end manufacturing efficiency and advanced processing capabilities."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgVp2oqlzRK5789hmm2aFHBKOXXndD3eQJE7PPJwO43VMfMdTZNBsfpei8nvjt3AaTuEnIDntaaVBjWuUmbmdkQX4qjPlDIAGb-Xtswc8EGRe9WaWLhhYXasCIhzJO8pWKJQ6ePQxMEZRGFnVE5qZTDNFD6dHediKdROCEqoE4fVI9jol3SAk-hOyPg2qb7CFZnv1xhmQs1vS0gNMNwQVaSxkZ1AvPynZ41A13vCh3OMf2IDTNdiRRCEb2oR6LuqSx9va994SJ5kNt" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent p-8 flex flex-col justify-end">
+                        <span class="text-xs font-label-caps text-primary mb-2">INDUSTRIAL</span>
+                        <h3 class="text-xl font-bold text-white">Giga-Plant X</h3>
+                        <p class="text-sm text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">Full
+                            facility steel supply including high-pressure tubing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-section-gap">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-3xl italic">
+                    <div class="flex gap-1 text-primary mb-6">
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                    </div>
+                    <p class="text-lg text-white mb-8">"SteelCore's commitment to delivery timelines and material
+                        traceability is unparalleled in the global market. They are a true partner in our logistics
+                        chain."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-800 border border-white/10"></div>
+                        <div>
+                            <div class="text-white font-bold">Robert Chen</div>
+                            <div class="text-xs text-on-surface-variant">Procurement Director, AeroLink Intl.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-10 rounded-3xl italic lg:mt-12">
+                    <div class="flex gap-1 text-primary mb-6">
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                    </div>
+                    <p class="text-lg text-white mb-8">"The metallurgical precision of their custom alloys allowed us to
+                        reduce component weight by 14% without compromising structural integrity."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-800 border border-white/10"></div>
+                        <div>
+                            <div class="text-white font-bold">Dr. Elena Vos</div>
+                            <div class="text-xs text-on-surface-variant">Chief Engineer, Nord-Tech Automotive</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-10 rounded-3xl italic lg:mt-24">
+                    <div class="flex gap-1 text-primary mb-6">
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                        <span class="material-symbols-outlined" data-weight="fill">star</span>
+                    </div>
+                    <p class="text-lg text-white mb-8">"Their sustainable manufacturing initiatives align perfectly with
+                        our ESG goals. A premium supplier that cares about the future."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-800 border border-white/10"></div>
+                        <div>
+                            <div class="text-white font-bold">Marcus Thorne</div>
+                            <div class="text-xs text-on-surface-variant">Sustainability Officer, Global Build Corp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications -->
+    <section class="py-24 border-y border-white/5 bg-slate-950/20">
+        <div class="max-w-7xl mx-auto px-8">
+            <div
+                class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">workspace_premium</span>
+                    <span class="font-bold text-white">ISO 9001:2015</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">eco</span>
+                    <span class="font-bold text-white">ISO 14001</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">health_and_safety</span>
+                    <span class="font-bold text-white">ISO 45001</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">language</span>
+                    <span class="font-bold text-white">EN 1090-1</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="py-section-gap">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="font-headline-lg text-white mb-6">Global Headquarters</h2>
+                    <p class="font-body-lg text-on-surface-variant mb-12">Ready to secure your supply chain? Reach out
+                        to our global trade desk or visit one of our logistics centers.</p>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">London Operations</h4>
+                                <p class="text-on-surface-variant">42 Canary Wharf, London, UK</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">General Inquiries</h4>
+                                <p class="text-on-surface-variant">trade@steelcore.global</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">phone_in_talk</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold">24/7 Supply Line</h4>
+                                <p class="text-on-surface-variant">+44 (0) 20 7946 0123</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 h-64 rounded-3xl overflow-hidden glass-card">
+                        <img class="w-full h-full object-cover grayscale opacity-50"
+                            data-alt="A stylized, minimalist map showing the global trade routes and office locations of SteelCore Global. The map is rendered in deep navy and glowing cyan lines, reflecting a high-tech logistics network. It highlights London, Singapore, and New York as key hubs."
+                            data-location="London"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWpA6aaslpPrAK6P2LBs1BV5SJRsf02nmI0jWKtvjRysmAINqY0IiJtjNcSxZKx9bcGTGUvourCK-B6pJ1hZdZZrnQ1fbsoFf74DKSphnBQC_uTor9r7fGQqJdWMYf2a4UnSLh5XB0Lk5mVTx6KtdZ1UK9RfbRXHsx2kt7PPW_lc44hNvyINnZvH8DUAeL6RoQMB7PTcP3KMELDucu87iqBvy_Ney0RHD-UDKFJ1OwS6iR_0bGkoYpyzBIS-kmdAlYUpdGOANH07cl" />
+                    </div>
+                </div>
+                <div class="glass-card p-12 rounded-3xl">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="font-label-caps text-slate-400 mb-2 block">FIRST NAME</label>
+                                <input
+                                    class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                                    type="text" />
+                            </div>
+                            <div>
+                                <label class="font-label-caps text-slate-400 mb-2 block">LAST NAME</label>
+                                <input
+                                    class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                                    type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="font-label-caps text-slate-400 mb-2 block">CORPORATE EMAIL</label>
+                            <input
+                                class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                                type="email" />
+                        </div>
+                        <div>
+                            <label class="font-label-caps text-slate-400 mb-2 block">INQUIRY TYPE</label>
+                            <select
+                                class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none">
+                                <option>Volume Procurement</option>
+                                <option>Custom Fabrication</option>
+                                <option>Logistics Partnership</option>
+                                <option>Investor Relations</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-label-caps text-slate-400 mb-2 block">MESSAGE</label>
+                            <textarea
+                                class="w-full bg-slate-900/50 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                                rows="4"></textarea>
+                        </div>
+                        <button
+                            class="metallic-btn w-full py-5 rounded-xl text-primary-container font-black uppercase tracking-widest text-sm shadow-xl">SUBMIT
+                            INQUIRY</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-slate-950 w-full border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <div class="text-xl font-bold text-slate-100 uppercase tracking-tighter">STEELCORE GLOBAL</div>
+                <p class="text-slate-500 text-sm leading-relaxed">Pioneering structural integrity through advanced
+                    metallurgy and digital trade logistics for a resilient global future.</p>
+                <div class="flex gap-4">
+                    <a class="w-8 h-8 rounded-full glass-card flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-8 h-8 rounded-full glass-card flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Solutions</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Aerospace Alloys</a>
+                    </li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Structural Beams</a>
+                    </li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Maritime Steel</a>
+                    </li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Energy
+                            Infrastructure</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Company</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Careers</a></li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Global Locations</a>
+                    </li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Compliance</a></li>
+                    <li><a class="text-slate-500 hover:text-slate-100 transition-colors" href="#">Investors</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                <p class="text-xs text-slate-500 mb-4">Quarterly insights on global steel markets and manufacturing
+                    trends.</p>
+                <div class="flex gap-2">
+                    <input
+                        class="bg-slate-900 border border-white/5 rounded px-3 py-2 text-xs focus:outline-none w-full"
+                        placeholder="Email" type="email" />
+                    <button class="bg-primary text-primary-container px-4 py-2 rounded text-xs font-bold">JOIN</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-8 py-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4 text-xs text-slate-500">
+            <div>© 2024 SteelCore Global Manufacturing. Precision Engineering for Global Trade.</div>
+            <div class="flex gap-6">
+                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="#">Compliance</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
