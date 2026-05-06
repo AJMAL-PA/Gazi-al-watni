@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import logo from '../assets/logo.png';
 
 const Preloader = () => {
     const [progress, setProgress] = useState(0);
@@ -63,35 +64,24 @@ const Preloader = () => {
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="mb-12"
+                            className="mb-12 flex flex-col items-center"
                         >
-                            <svg className="w-16 h-16 text-orange-500 mb-6 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <motion.path 
-                                    d="M12 2L2 7L12 12L22 7L12 2Z" 
-                                    fill="currentColor" 
-                                    initial={{ pathLength: 0, opacity: 0 }}
-                                    animate={{ pathLength: 1, opacity: 0.8 }}
-                                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                                />
-                                <motion.path 
-                                    d="M2 17L12 22L22 17M2 12L12 17L22 12" 
-                                    stroke="currentColor" 
-                                    strokeWidth="2" 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round" 
-                                    initial={{ pathLength: 0 }}
-                                    animate={{ pathLength: 1 }}
-                                    transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-                                />
-                            </svg>
+                            <motion.div
+                                initial={{ rotate: -10, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                transition={{ duration: 1, ease: "easeOut" }}
+                                className="w-24 h-24 bg-white p-3.5 rounded-2xl flex items-center justify-center mb-6 shadow-2xl shadow-orange-500/10 border border-white/10"
+                            >
+                                <img src={logo} alt="Gazi Alwatani Logo" className="w-full h-full object-contain" />
+                            </motion.div>
                             
                             <motion.h1 
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="text-6xl md:text-8xl font-bebas text-slate-50 tracking-normal text-center"
+                                className="text-5xl md:text-7xl font-bebas text-slate-50 tracking-wider text-center"
                             >
-                                STEEL<span className="text-orange-500">CORE</span>
+                                GAZI <span className="text-orange-500">ALWATANI</span>
                             </motion.h1>
                         </motion.div>
 
@@ -138,7 +128,7 @@ const Preloader = () => {
                             transition={{ delay: 1 }}
                             className="font-inter text-slate-400 text-[10px] tracking-[0.6em] uppercase"
                         >
-                            Global Infrastructure & Engineering
+                            TRUSTWORTHY & PROFESSIONAL SERVICES
                         </motion.div>
                         
                         {/* Decorative line */}
