@@ -30,7 +30,7 @@ export default function About() {
                     />
                     
                     <BlurText 
-                        text="Gazi National Establishment is a registered and officially recognized business operating under the Ministry of Commerce. We are committed to delivering reliable, professional, and high-quality industrial services while ensuring full legal compliance and operational transparency."
+                        text="Gazi Alwatani is a registered and officially recognized business operating under the Ministry of Commerce. We are committed to delivering reliable, professional, and high-quality industrial services while ensuring full legal compliance and operational transparency."
                         delay={10}
                         direction="bottom"
                         className="text-slate-400 text-lg leading-relaxed"

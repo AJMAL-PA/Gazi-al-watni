@@ -9,7 +9,7 @@ import Features from '../components/Features';
 import Process from '../components/Process';
 import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
-import Certifications from '../components/Certifications';
+
 import SectionReveal from '../components/SectionReveal';
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       <SectionReveal><Projects /></SectionReveal>
       <SectionReveal><Process /></SectionReveal>
       <SectionReveal><Testimonials /></SectionReveal>
-      <SectionReveal><Certifications /></SectionReveal>
+
     </main>
   );
 }

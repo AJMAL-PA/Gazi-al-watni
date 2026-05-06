@@ -52,7 +52,14 @@ export default function Header() {
             <nav className={`flex justify-between items-center max-w-7xl mx-auto transition-all duration-500 ${scrolled ? 'p-4 md:px-8 md:py-4' : 'bg-black/20 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-2xl md:rounded-none  border-none md:border-none'}`}>
                 {/* Left: Logo */}
                 <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer flex-1">
-                    <img src={logo} alt="Gazi National Logo" className="h-10 md:h-12 w-auto object-contain" />
+                    <img 
+                        src={logo} 
+                        alt="Gazi Alwatani Logo" 
+                        className={`h-10 md:h-12 w-auto object-contain transition-all duration-300 ${scrolled ? 'bg-white p-1.5 rounded-lg shadow-md shadow-black/5' : 'bg-transparent'}`} 
+                    />
+                    <span className="text-white font-bebas tracking-wider text-xl md:text-2xl font-bold uppercase whitespace-nowrap">
+                        GAZI ALWATANI
+                    </span>
                 </Link>
 
                 {/* Center: Floating Pill Nav (Desktop) */}
@@ -71,7 +78,7 @@ export default function Header() {
                 {/* Right: Actions */}
                 <div className="flex justify-end items-center flex-1 gap-4">
                     <a
-                        href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20project."
+                        href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20project."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden sm:flex bg-orange-600/10 backdrop-blur-md border border-orange-500/30 hover:bg-orange-600/20 hover:border-orange-500/60 transition-all duration-300 shadow-[0_0_15px_rgba(234,88,12,0.15)] hover:shadow-[0_0_20px_rgba(234,88,12,0.3)] px-6 py-3 rounded-full text-white font-inter tracking-wide uppercase text-xs font-extrabold active:scale-95 whitespace-nowrap">
@@ -101,7 +108,10 @@ export default function Header() {
                     >
                         <div className="flex justify-between items-center mb-12">
                             <div className="flex items-center gap-2">
-                                <img src={logo} alt="Gazi National Logo" className="h-8 w-auto object-contain" />
+                                <img src={logo} alt="Gazi Alwatani Logo" className="h-8 w-auto object-contain bg-transparent" />
+                                <span className="text-white font-bebas tracking-wider text-lg font-bold uppercase whitespace-nowrap">
+                                    GAZI ALWATANI
+                                </span>
                             </div>
                             <button onClick={() => setIsMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-xl">
                                 <HiX className="w-8 h-8" />
@@ -128,7 +138,7 @@ export default function Header() {
 
                         <div className="mt-auto pt-12 border-t border-white/10">
                             <a
-                                href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                                href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
                                 className="w-full bg-orange-600 text-white py-4 rounded-2xl flex items-center justify-center font-bold uppercase tracking-widest text-sm shadow-xl shadow-orange-600/20"
                             >
                                 Get a Quote

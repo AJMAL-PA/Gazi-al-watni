@@ -44,12 +44,12 @@ export default function GalleryPage() {
 
       {/* Filter Tabs */}
       <SectionReveal className="pb-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
+        <div className="max-w-7xl mx-auto flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-3 overflow-x-auto pb-4 scrollbar-hide">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-8 py-3 rounded-full font-inter uppercase tracking-widest text-xs transition-all duration-300 border ${
+              className={`px-5 py-2 md:px-7 md:py-2.5 rounded-full font-inter uppercase tracking-widest text-[10px] md:text-xs transition-all duration-300 border flex-shrink-0 ${
                 filter === cat 
                   ? 'bg-orange-600 border-orange-500 text-white shadow-[0_0_15px_rgba(234,88,12,0.4)]' 
                   : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
@@ -133,7 +133,7 @@ export default function GalleryPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a
-              href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20a%20free%20quote."
+              href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20a%20free%20quote."
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-5 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bebas uppercase tracking-widest rounded-full hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] hover:scale-105 transition-all duration-300 text-lg"

@@ -75,7 +75,7 @@ export default function ContactPage() {
             <h3 className="text-xl font-bebas mb-6 tracking-widest text-orange-500">Follow Our Progress</h3>
             <div className="flex gap-4">
               <a 
-                href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20am%20interested%20in%20your%20services." 
+                href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-500 hover:border-green-500 transition-all duration-300 group"
@@ -163,7 +163,7 @@ export default function ContactPage() {
           <h2 className="text-4xl md:text-6xl font-bebas leading-tight tracking-[0.1em]">We Are Always Ready To<br/><span className="text-orange-600">Forge Your Success</span></h2>
           <div className="pt-4">
             <a
-              href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20would%20like%20to%20contact%20you%20regarding%20your%20services."
+              href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20contact%20you%20regarding%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-12 py-5 bg-white text-slate-950 font-bebas uppercase tracking-[0.2em] rounded-full hover:bg-orange-600 hover:text-white transition-all shadow-2xl"

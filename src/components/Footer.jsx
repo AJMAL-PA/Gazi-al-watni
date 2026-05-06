@@ -7,12 +7,15 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="space-y-6">
                 <div className="flex items-center gap-2">
-                    <img src={logo} alt="Gazi National Logo" className="h-10 w-auto object-contain" />
+                    <img src={logo} alt="Gazi Alwatani Logo" className="h-10 w-auto object-contain bg-transparent" />
+                    <span className="text-white font-bebas tracking-wider text-xl font-bold uppercase whitespace-nowrap">
+                        GAZI ALWATANI
+                    </span>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed">Providing trustworthy and professional services while maintaining full compliance with Ministry of Commerce regulations.</p>
                 <div className="flex gap-4">
                     <a 
-                      href="https://wa.me/7052495749?text=Hello%20Gazi%20National%20Establishment%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+                      href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-500 transition-all duration-300"
@@ -70,7 +73,7 @@ export default function Footer() {
         </div>
         <div
             className="max-w-7xl mx-auto px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <div>© 2025 Gazi National Establishment. Registered with Ministry of Commerce (KSA).</div>
+            <div>© 2025 Gazi Alwatani. Registered with Ministry of Commerce (KSA).</div>
             <div className="flex gap-6">
                 <a className="hover:text-white transition-colors" href="#">Privacy Policy</a>
                 <a className="hover:text-white transition-colors" href="#">Terms of Service</a>

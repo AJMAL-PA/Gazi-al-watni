@@ -11,7 +11,7 @@ export default function Testimonials() {
                     <div className="flex gap-1 text-orange-500 mb-6 mt-4">
                         {[...Array(5)].map((_, i) => <span key={i} className="material-symbols-outlined text-sm" data-weight="fill">star</span>)}
                     </div>
-                    <p className="text-lg text-slate-300 mb-8 italic leading-relaxed">"Gazi National's commitment to delivery timelines and operational transparency is unparalleled. They are a true partner in our operations."</p>
+                    <p className="text-lg text-slate-300 mb-8 italic leading-relaxed">"Gazi Alwatani's commitment to delivery timelines and operational transparency is unparalleled. They are a true partner in our operations."</p>
                     <div className="flex items-center gap-4 border-t border-white/5 pt-6">
                         <div className="w-12 h-12 rounded-full bg-orange-600/20 border border-orange-500/30 flex items-center justify-center text-orange-500 font-bebas text-xl">RC</div>
                         <div>

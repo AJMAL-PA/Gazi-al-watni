@@ -1,5 +1,5 @@
 import Features from '../components/Features';
-import Certifications from '../components/Certifications';
+
 import Process from '../components/Process';
 import BlurText from '../components/BlurText';
 import MissionVision from '../components/MissionVision';
@@ -52,13 +52,13 @@ export default function AboutPage() {
           <span className="text-slate-300 font-bold tracking-widest uppercase text-[11px] md:text-sm">PRECISION. INNOVATION. RELIABILITY.</span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight mt-2 tracking-normal">
-            Gazi National <br/>
-            <span className="text-orange-600">Establishment</span>
+            Gazi <br/>
+            <span className="text-orange-600">Alwatani</span>
           </h1>
           
           <div className="space-y-6 text-slate-400 font-inter text-base md:text-lg leading-relaxed pt-2">
             <p>
-              Gazi National Establishment is a legally registered business entity operating under the regulations of the Ministry of Commerce. With an active commercial registration, the company ensures compliance, transparency, and credibility in all its operations.
+              Gazi Alwatani is a legally registered business entity operating under the regulations of the Ministry of Commerce. With an active commercial registration, the company ensures compliance, transparency, and credibility in all its operations.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white/5 p-6 rounded-2xl border border-white/10">
                 <div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
       <SectionReveal><MissionVision /></SectionReveal>
       <SectionReveal><Process /></SectionReveal>
       <SectionReveal><Features /></SectionReveal>
-      <SectionReveal><Certifications /></SectionReveal>
+
     </main>
   );
 }
