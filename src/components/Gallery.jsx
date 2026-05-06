@@ -2,14 +2,22 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BlurText from './BlurText';
 
+import gallery1 from '../assets/gallery_1.jpg';
+import gallery2 from '../assets/gallery_2.jpg';
+import gallery3 from '../assets/gallery_3.jpg';
+import gallery4 from '../assets/gallery_4.jpg';
+import gallery5 from '../assets/gallery_5.jpg';
+import gallery6 from '../assets/gallery_6.jpg';
+import gallery7 from '../assets/gallery_7.jpg';
+import gallery8 from '../assets/gallery_8.jpg';
+
 export default function Gallery() {
   const images = [
-    { src: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop', alt: 'Precision Welding', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1 sm:row-span-2 md:row-span-2' },
-    { src: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2070&auto=format&fit=crop', alt: 'Warehouse Storage', span: 'col-span-1' },
-    { src: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop', alt: 'Global Logistics', span: 'col-span-1 row-span-1 sm:row-span-2 md:row-span-2' },
-    { src: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop', alt: 'CNC Metal Cutting', span: 'col-span-1' },
-    { src: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?q=80&w=2070&auto=format&fit=crop', alt: 'Heavy Machinery', span: 'col-span-1 sm:col-span-2' },
-    { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop', alt: 'Commercial Interiors', span: 'col-span-1 sm:col-span-2' }
+    { src: gallery1, alt: 'Steel Plate Rolling', span: 'col-span-1 sm:col-span-2 md:col-span-2' },
+    { src: gallery2, alt: 'Structural Welding', span: 'col-span-1' },
+    { src: gallery3, alt: 'Heavy Logistics', span: 'col-span-1' },
+    { src: gallery4, alt: 'Architectural Metalwork', span: 'col-span-1 sm:col-span-2 md:col-span-2' },
+    { src: gallery5, alt: 'Precision Assembly', span: 'col-span-1 sm:col-span-2 md:col-span-2' }
   ];
 
   return (

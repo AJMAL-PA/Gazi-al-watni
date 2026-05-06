@@ -5,6 +5,28 @@ import logo from '../assets/logo.png';
 const Preloader = () => {
     const [progress, setProgress] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const [logoDone, setLogoDone] = useState(false);
+    const [visibleCount, setVisibleCount] = useState(0);
+    const [typewriterDone, setTypewriterDone] = useState(false);
+
+    const text1 = "غازي ";
+    const text2 = "الوطني";
+
+    useEffect(() => {
+        if (logoDone) {
+            let count = 0;
+            const totalLength = text1.length + text2.length;
+            const interval = setInterval(() => {
+                count++;
+                setVisibleCount(count);
+                if (count >= totalLength) {
+                    clearInterval(interval);
+                    setTypewriterDone(true);
+                }
+            }, 80); // SNAPPY & SMOOTH (80ms speed)
+            return () => clearInterval(interval);
+        }
+    }, [logoDone]);
 
     useEffect(() => {
         // Disable scroll when loading
@@ -13,13 +35,17 @@ const Preloader = () => {
         const interval = setInterval(() => {
             setProgress((prev) => {
                 if (prev >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        setIsLoading(false);
-                        // Re-enable scroll when done
-                        document.body.style.overflow = 'unset';
-                    }, 800);
-                    return 100;
+                    // Only finish loading once typewriter animation is fully complete
+                    if (typewriterDone) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            setIsLoading(false);
+                            // Re-enable scroll when done
+                            document.body.style.overflow = 'unset';
+                        }, 800);
+                        return 100;
+                    }
+                    return 99; // Hold at 99% until typewriter is complete
                 }
                 const increment = Math.random() * 15;
                 return Math.min(prev + increment, 100);
@@ -30,7 +56,7 @@ const Preloader = () => {
             clearInterval(interval);
             document.body.style.overflow = 'unset';
         };
-    }, []);
+    }, [typewriterDone]);
 
     return (
         <AnimatePresence>
@@ -60,30 +86,30 @@ const Preloader = () => {
 
                     <div className="relative flex flex-col items-center">
                         {/* Logo/Icon Animation */}
+                    <div className="mb-12 flex flex-row-reverse items-center justify-center gap-6">
                         <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
+                            initial={{ rotate: -10, opacity: 0, x: 30 }}
+                            animate={{ rotate: 0, opacity: 1, x: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="mb-12 flex flex-col items-center"
+                            onAnimationComplete={() => setLogoDone(true)}
+                            className="w-20 h-20 md:w-24 md:h-24 bg-white p-3.5 rounded-2xl flex items-center justify-center shadow-2xl shadow-orange-500/10 border border-white/10"
                         >
-                            <motion.div
-                                initial={{ rotate: -10, opacity: 0 }}
-                                animate={{ rotate: 0, opacity: 1 }}
-                                transition={{ duration: 1, ease: "easeOut" }}
-                                className="w-24 h-24 bg-white p-3.5 rounded-2xl flex items-center justify-center mb-6 shadow-2xl shadow-orange-500/10 border border-white/10"
-                            >
-                                <img src={logo} alt="Gazi Alwatani Logo" className="w-full h-full object-contain" />
-                            </motion.div>
-                            
-                            <motion.h1 
-                                initial={{ y: 20, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                                className="text-5xl md:text-7xl font-bebas text-slate-50 tracking-wider text-center"
-                            >
-                                GAZI <span className="text-orange-500">ALWATANI</span>
-                            </motion.h1>
+                            <img src={logo} alt="Gazi Alwatani Logo" className="w-full h-full object-contain" />
                         </motion.div>
+                        
+                        <motion.h1 
+                            className="text-4xl md:text-6xl font-bebas text-slate-50 tracking-wider text-right flex items-center min-h-[80px] gap-2 select-none"
+                            style={{ direction: 'rtl' }}
+                        >
+                            <span>
+                                {text1.slice(0, visibleCount)}
+                            </span>
+                            <span className="text-orange-500">
+                                {visibleCount > text1.length ? text2.slice(0, visibleCount - text1.length) : ""}
+                            </span>
+                            <span className="animate-pulse text-orange-500">|</span>
+                        </motion.h1>
+                    </div>
 
                         {/* Progress Container */}
                         <div className="w-80 space-y-4">

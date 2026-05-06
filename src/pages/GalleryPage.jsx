@@ -3,17 +3,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BlurText from '../components/BlurText';
 import SectionReveal from '../components/SectionReveal';
 
-const categories = ['All', 'Fabrication', 'Logistics', 'Interior', 'Branding'];
+import gallery1 from '../assets/gallery_1.jpg';
+import gallery2 from '../assets/gallery_2.jpg';
+import gallery3 from '../assets/gallery_3.jpg';
+import gallery4 from '../assets/gallery_4.jpg';
+import gallery5 from '../assets/gallery_5.jpg';
+import gallery6 from '../assets/gallery_6.jpg';
+import gallery7 from '../assets/gallery_7.jpg';
+import gallery8 from '../assets/gallery_8.jpg';
+
+const categories = ['All', 'Fabrication', 'Logistics', 'Interior'];
 
 const galleryItems = [
-  { id: 1, category: 'Fabrication', src: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop', title: 'Precision Welding', desc: 'Advanced robotic welding systems for structural integrity.' },
-  { id: 2, category: 'Logistics', src: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2070&auto=format&fit=crop', title: 'Smart Warehousing', desc: 'Automated inventory management for global steel distribution.' },
-  { id: 3, category: 'Logistics', src: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop', title: 'Global Shipping', desc: 'End-to-end logistics for international infrastructure projects.' },
-  { id: 4, category: 'Fabrication', src: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop', title: 'CNC Laser Cutting', desc: 'High-tolerance metal shaping with micro-millimeter precision.' },
-  { id: 5, category: 'Fabrication', src: 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?q=80&w=2070&auto=format&fit=crop', title: 'Heavy Manufacturing', desc: 'Large-scale structural components for industrial facilities.' },
-  { id: 6, category: 'Interior', src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop', title: 'Architectural Accents', desc: 'Bespoke metal features for high-end commercial interiors.' },
-  { id: 7, category: 'Branding', src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop', title: 'Exhibition Design', desc: 'Monumental signage and structural branding installations.' },
-  { id: 8, category: 'Fabrication', src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop', title: 'Custom Assembly', desc: 'Complex multi-part assemblies for specialized machinery.' },
+  { id: 1, category: 'Fabrication', src: gallery1, title: 'Steel Plate Rolling', desc: 'Heavy-duty rolling machines processing industrial steel plates.' },
+  { id: 2, category: 'Fabrication', src: gallery2, title: 'Structural Welding', desc: 'Precision manual arc welding for high-strength steel beams.' },
+  { id: 3, category: 'Logistics', src: gallery3, title: 'Heavy Logistics', desc: 'Transporting massive pre-fabricated steel structures to project sites.' },
+  { id: 4, category: 'Interior', src: gallery4, title: 'Architectural Metalwork', desc: 'Polished metal frames and structures for modern commercial spaces.' },
+  { id: 5, category: 'Fabrication', src: gallery5, title: 'Precision Assembly', desc: 'Close-up of precise component fitting for steel structures.' },
+  { id: 6, category: 'Fabrication', src: gallery6, title: 'Industrial Plasma Cutting', desc: 'High-speed CNC plasma cutting of thick steel plates.' },
+  { id: 7, category: 'Fabrication', src: gallery7, title: 'Metal Fabrication Line', desc: 'Automated assembly line processing heavy steel parts.' },
+  { id: 8, category: 'Fabrication', src: gallery8, title: 'Structural Engineering', desc: 'On-site engineering inspection of major steel frameworks.' }
 ];
 
 export default function GalleryPage() {
@@ -107,7 +116,7 @@ export default function GalleryPage() {
         {/* Background image with overlay */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop"
+            src={gallery2}
             alt="CTA background"
             className="w-full h-full object-cover opacity-20"
           />
