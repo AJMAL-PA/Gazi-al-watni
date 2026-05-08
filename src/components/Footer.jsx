@@ -15,7 +15,7 @@ export default function Footer() {
                 <p className="text-slate-500 text-sm leading-relaxed">Providing trustworthy and professional services while maintaining full compliance with Ministry of Commerce regulations.</p>
                 <div className="flex gap-4">
                     <a 
-                      href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+                      href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-500 transition-all duration-300"

@@ -1,6 +1,6 @@
 import Features from '../components/Features';
 
-import Process from '../components/Process';
+import Team from '../components/Team';
 import BlurText from '../components/BlurText';
 import MissionVision from '../components/MissionVision';
 import SectionReveal from '../components/SectionReveal';
@@ -85,9 +85,9 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <SectionReveal><MissionVision /></SectionReveal>
-      <SectionReveal><Process /></SectionReveal>
-      <SectionReveal><Features /></SectionReveal>
+      {/* <SectionReveal><MissionVision /></SectionReveal> */}
+      <SectionReveal><Team /></SectionReveal>
+      {/* <SectionReveal><Features /></SectionReveal> */}
 
     </main>
   );

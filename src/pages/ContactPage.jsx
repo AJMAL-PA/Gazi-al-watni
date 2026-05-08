@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BlurText from '../components/BlurText';
@@ -7,6 +7,30 @@ import { FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 
 export default function ContactPage() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('Custom Fabrication');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (!fullName.trim() || !message.trim()) {
+      alert("Please fill in both your name and message before sending.");
+      return;
+    }
+
+    const formattedMessage = encodeURIComponent(
+      `*New Inquiry via Website* 🌐\n\n` +
+      `👤 *Name:* ${fullName}\n` +
+      `📧 *Email:* ${email || 'Not provided'}\n` +
+      `📁 *Subject:* ${subject}\n\n` +
+      `💬 *Message:*\n${message}`
+    );
+    
+    const whatsappUrl = `https://wa.me/966531104409?text=${formattedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
   return (
     <main className="pt-32 bg-slate-950 text-white min-h-screen overflow-hidden">
       
@@ -47,7 +71,7 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">mail</span>
               </div>
               <h3 className="text-xl font-bebas mb-2 tracking-widest">Email Us</h3>
-              <p className="text-slate-400 font-inter text-sm leading-relaxed">steelcoreglobal@gmail.com</p>
+              <p className="text-slate-400 font-inter text-sm leading-relaxed">gazialwatani@gmail.com</p>
             </div>
 
             <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-orange-500/30 transition-colors group">
@@ -55,7 +79,7 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">call</span>
               </div>
               <h3 className="text-xl font-bebas mb-2 tracking-widest">Call Us</h3>
-              <p className="text-slate-400 font-inter text-sm leading-relaxed">7052495749</p>
+              <p className="text-slate-400 font-inter text-sm leading-relaxed">+966 53 110 4409</p>
             </div>
 
             <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-orange-500/30 transition-colors group md:col-span-2">
@@ -75,7 +99,7 @@ export default function ContactPage() {
             <h3 className="text-xl font-bebas mb-6 tracking-widest text-orange-500">Follow Our Progress</h3>
             <div className="flex gap-4">
               <a 
-                href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
+                href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-500 hover:border-green-500 transition-all duration-300 group"
@@ -117,31 +141,55 @@ export default function ContactPage() {
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 blur-3xl -mr-16 -mt-16"></div>
           <h2 className="text-3xl font-bebas mb-8 tracking-widest">Send an Inquiry</h2>
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Full Name</label>
-                <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" placeholder="John Doe" />
+                <input 
+                  type="text" 
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" 
+                  placeholder="John Doe" 
+                  required
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Email Address</label>
-                <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" placeholder="john@example.com" />
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" 
+                  placeholder="john@example.com" 
+                />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Subject</label>
-              <select className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors appearance-none">
-                <option className="bg-slate-900">Custom Fabrication</option>
-                <option className="bg-slate-900">Structural Steel</option>
-                <option className="bg-slate-900">Powder Coating</option>
-                <option className="bg-slate-900">Other Inquiry</option>
+              <select 
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors appearance-none"
+              >
+                <option className="bg-slate-900" value="Custom Fabrication">Custom Fabrication</option>
+                <option className="bg-slate-900" value="Structural Steel">Structural Steel</option>
+                <option className="bg-slate-900" value="Powder Coating">Powder Coating</option>
+                <option className="bg-slate-900" value="Other Inquiry">Other Inquiry</option>
               </select>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Your Message</label>
-              <textarea rows="4" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors resize-none" placeholder="How can we help you?"></textarea>
+              <textarea 
+                rows="4" 
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors resize-none" 
+                placeholder="How can we help you?"
+                required
+              ></textarea>
             </div>
-            <button className="w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-bebas text-xl tracking-[0.2em] rounded-2xl transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] active:scale-95">
+            <button type="submit" className="w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-bebas text-xl tracking-[0.2em] rounded-2xl transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] active:scale-95">
               Send Message
             </button>
           </form>
@@ -163,7 +211,7 @@ export default function ContactPage() {
           <h2 className="text-4xl md:text-6xl font-bebas leading-tight tracking-[0.1em]">We Are Always Ready To<br/><span className="text-orange-600">Forge Your Success</span></h2>
           <div className="pt-4">
             <a
-              href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20contact%20you%20regarding%20your%20services."
+              href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20contact%20you%20regarding%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-12 py-5 bg-white text-slate-950 font-bebas uppercase tracking-[0.2em] rounded-full hover:bg-orange-600 hover:text-white transition-all shadow-2xl"

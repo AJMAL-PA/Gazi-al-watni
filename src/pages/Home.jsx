@@ -6,9 +6,8 @@ import Gallery from '../components/Gallery';
 import Products from '../components/Products';
 import Industries from '../components/Industries';
 import Features from '../components/Features';
-import Process from '../components/Process';
+import Team from '../components/Team';
 import Projects from '../components/Projects';
-import Testimonials from '../components/Testimonials';
 
 import SectionReveal from '../components/SectionReveal';
 
@@ -24,9 +23,7 @@ export default function Home() {
       <SectionReveal><Industries /></SectionReveal>
       <SectionReveal><Features /></SectionReveal>
       <SectionReveal><Projects /></SectionReveal>
-      <SectionReveal><Process /></SectionReveal>
-      <SectionReveal><Testimonials /></SectionReveal>
-
+  
     </main>
   );
 }

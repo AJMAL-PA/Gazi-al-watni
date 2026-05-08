@@ -78,7 +78,7 @@ export default function Header() {
                 {/* Right: Actions */}
                 <div className="flex justify-end items-center flex-1 gap-4">
                     <a
-                        href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20project."
+                        href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20project."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden sm:flex bg-orange-600/10 backdrop-blur-md border border-orange-500/30 hover:bg-orange-600/20 hover:border-orange-500/60 transition-all duration-300 shadow-[0_0_15px_rgba(234,88,12,0.15)] hover:shadow-[0_0_20px_rgba(234,88,12,0.3)] px-6 py-3 rounded-full text-white font-inter tracking-wide uppercase text-xs font-extrabold active:scale-95 whitespace-nowrap">
@@ -138,7 +138,7 @@ export default function Header() {
 
                         <div className="mt-auto pt-12 border-t border-white/10">
                             <a
-                                href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                                href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
                                 className="w-full bg-orange-600 text-white py-4 rounded-2xl flex items-center justify-center font-bold uppercase tracking-widest text-sm shadow-xl shadow-orange-600/20"
                             >
                                 Get a Quote

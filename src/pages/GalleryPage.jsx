@@ -11,6 +11,7 @@ import gallery5 from '../assets/gallery_5.jpg';
 import gallery6 from '../assets/gallery_6.jpg';
 import gallery7 from '../assets/gallery_7.jpg';
 import gallery8 from '../assets/gallery_8.jpg';
+import gallery9 from '../assets/WhatsApp Image 2026-05-04 at 7.28.02 PM copy.jpeg';
 
 const categories = ['All', 'Fabrication', 'Logistics', 'Interior'];
 
@@ -22,7 +23,8 @@ const galleryItems = [
   { id: 5, category: 'Fabrication', src: gallery5, title: 'Precision Assembly', desc: 'Close-up of precise component fitting for steel structures.' },
   { id: 6, category: 'Fabrication', src: gallery6, title: 'Industrial Plasma Cutting', desc: 'High-speed CNC plasma cutting of thick steel plates.' },
   { id: 7, category: 'Fabrication', src: gallery7, title: 'Metal Fabrication Line', desc: 'Automated assembly line processing heavy steel parts.' },
-  { id: 8, category: 'Fabrication', src: gallery8, title: 'Structural Engineering', desc: 'On-site engineering inspection of major steel frameworks.' }
+  { id: 8, category: 'Fabrication', src: gallery8, title: 'Structural Engineering', desc: 'On-site engineering inspection of major steel frameworks.' },
+  { id: 9, category: 'Fabrication', src: gallery9, title: 'Bespoke Steel Components', desc: 'Custom steel fabrication and finish designed for highly-demanding industrial environments.' }
 ];
 
 export default function GalleryPage() {
@@ -142,7 +144,7 @@ export default function GalleryPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a
-              href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20a%20free%20quote."
+              href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20a%20free%20quote."
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-5 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bebas uppercase tracking-widest rounded-full hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] hover:scale-105 transition-all duration-300 text-lg"

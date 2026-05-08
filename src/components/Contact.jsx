@@ -32,7 +32,7 @@ export default function Contact() {
                             </div>
                             <div>
                                 <h4 className="text-white font-bold">Support Line</h4>
-                                <p className="text-on-surface-variant">7052495749</p>
+                                <p className="text-on-surface-variant">+966 53 110 4409</p>
                             </div>
                         </div>
                     </div>

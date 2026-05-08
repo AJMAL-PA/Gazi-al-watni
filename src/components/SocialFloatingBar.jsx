@@ -26,7 +26,7 @@ export default function SocialFloatingBar() {
               <FaInstagram className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a 
-              href="https://wa.me/7052495749?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
+              href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
               target="_blank"
               rel="noopener noreferrer"
               title="WhatsApp" 
