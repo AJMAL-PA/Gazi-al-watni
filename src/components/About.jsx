@@ -1,8 +1,10 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BlurText from './BlurText';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function About() {
+    const { t } = useLanguage();
+
   return (
     <section className="py-12 md:py-24 bg-slate-950 text-white font-inter">
         <div className="max-w-[1400px] mx-auto px-6">
@@ -20,17 +22,17 @@ export default function About() {
                 
                 {/* Right side: Content */}
                 <div className="space-y-6 md:space-y-8 lg:pl-8">
-                    <span className="text-orange-500 font-bold tracking-widest uppercase text-xs md:text-sm">About Us</span>
+                    <span className="text-orange-500 font-bold tracking-widest uppercase text-xs md:text-sm">{t('about.badge')}</span>
                     
                     <BlurText 
-                        text="Forging the Future of Global Infrastructure"
+                        text={t('about.title')}
                         delay={50}
                         direction="top"
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight text-white drop-shadow-md tracking-normal max-w-[90%] md:max-w-none"
                     />
                     
                     <BlurText 
-                        text="Gazi Alwatani is a registered and officially recognized business operating under the Ministry of Commerce. We are committed to delivering reliable, professional, and high-quality industrial services while ensuring full legal compliance and operational transparency."
+                        text={t('about.body')}
                         delay={10}
                         direction="bottom"
                         className="text-slate-400 text-lg leading-relaxed"
@@ -44,7 +46,7 @@ export default function About() {
                             to="/about"
                             className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 hover:border-orange-500/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 inline-block font-inter uppercase tracking-widest text-sm"
                         >
-                            Know More
+                            {t('about.knowMore')}
                         </Link>
                     </div>
                 </div>

@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Team() {
+    const { t } = useLanguage();
     const leader = {
-        name: "Eng. Gazi Al-Mutairi",
-        role: "Founder & CEO",
-        initials: "GM",
-        linkedin: "#",
-        email: "ceo@gazialwatani.com"
+        ...t('team.leader'),
+        linkedin: '#',
+        email: 'ceo@gazialwatani.com'
     };
 
     return (
@@ -18,8 +17,8 @@ export default function Team() {
             <div className="max-w-5xl mx-auto px-6 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
-                    <span className="text-orange-500 font-bebas tracking-widest text-sm md:text-base uppercase bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/20">Executive Leadership</span>
-                    <h2 className="text-4xl md:text-7xl font-bebas tracking-wider text-white mt-4 uppercase">Meet Our Team</h2>
+                    <span className="text-orange-500 font-bebas tracking-widest text-sm md:text-base uppercase bg-orange-500/10 px-4 py-1.5 rounded-full border border-orange-500/20">{t('team.badge')}</span>
+                    <h2 className="text-4xl md:text-7xl font-bebas tracking-wider text-white mt-4 uppercase">{t('team.title')}</h2>
                 </div>
 
                 {/* Single Premium Executive Card */}
@@ -58,7 +57,7 @@ export default function Team() {
                             {/* Verification/Active Badge */}
                             <div className="absolute bottom-1 right-1 bg-emerald-500 text-slate-950 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg border border-slate-950 z-20">
                                 <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-pulse"></span>
-                                ACTIVE
+                                {t('team.active')}
                             </div>
                         </div>
 
@@ -84,14 +83,14 @@ export default function Team() {
                                     <svg className="w-4 h-4 fill-current text-orange-500 group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24">
                                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                     </svg>
-                                    LinkedIn
+                                    {t('team.linkedin')}
                                 </a>
                                 <a 
                                     href={`mailto:${leader.email}`}
                                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white transition-all duration-300 active:scale-95 text-xs font-semibold font-inter shadow-[0_4px_15px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)]"
                                 >
                                     <span className="material-symbols-outlined text-base">mail</span>
-                                    Get In Touch
+                                    {t('team.getInTouch')}
                                 </a>
                             </div>
                         </div>

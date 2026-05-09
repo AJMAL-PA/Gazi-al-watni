@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import logo from '../assets/logo.png';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Preloader = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [logoDone, setLogoDone] = useState(false);
     const [showText, setShowText] = useState(false);
     const [textDone, setTextDone] = useState(false);
+    const { t, dir } = useLanguage();
 
-    const text1 = "غازي";
-    const text2 = "الوطني";
+    const text1 = t('preloader.text1');
+    const text2 = t('preloader.text2');
 
     useEffect(() => {
         if (logoDone) {
@@ -79,7 +81,7 @@ const Preloader = () => {
                                         exit={{ opacity: 0, filter: "blur(20px)", x: 20 }}
                                         transition={{ duration: 0.8, ease: "easeOut" }}
                                         className="text-4xl md:text-6xl font-bebas text-slate-50 tracking-wider flex items-center gap-3 select-none"
-                                        style={{ direction: 'rtl' }}
+                                        style={{ direction: dir }}
                                     >
                                         <motion.span
                                             initial={{ opacity: 0, filter: "blur(15px)" }}

@@ -1,12 +1,11 @@
-import Features from '../components/Features';
-
 import Team from '../components/Team';
-import BlurText from '../components/BlurText';
-import MissionVision from '../components/MissionVision';
 import SectionReveal from '../components/SectionReveal';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="pt-32 pb-24 bg-slate-950 min-h-screen text-white overflow-hidden">
       
@@ -49,37 +48,37 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="space-y-6 lg:pl-6"
         >
-          <span className="text-slate-300 font-bold tracking-widest uppercase text-[11px] md:text-sm">PRECISION. INNOVATION. RELIABILITY.</span>
+          <span className="text-slate-300 font-bold tracking-widest uppercase text-[11px] md:text-sm">{t('aboutPage.tagline')}</span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight mt-2 tracking-normal">
-            Gazi <br/>
-            <span className="text-orange-600">Alwatani</span>
+            {t('aboutPage.nameLine1')} <br/>
+            <span className="text-orange-600">{t('aboutPage.nameLine2')}</span>
           </h1>
           
           <div className="space-y-6 text-slate-400 font-inter text-base md:text-lg leading-relaxed pt-2">
             <p>
-              Gazi Alwatani is a legally registered business entity operating under the regulations of the Ministry of Commerce. With an active commercial registration, the company ensures compliance, transparency, and credibility in all its operations.
+              {t('aboutPage.paragraph1')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white/5 p-6 rounded-2xl border border-white/10">
                 <div>
-                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">Unified National Number</p>
+                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">{t('aboutPage.infoLabels.unifiedNationalNumber')}</p>
                     <p className="text-white text-xl font-bebas">7052495749</p>
                 </div>
                 <div>
-                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">Registration Number</p>
+                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">{t('aboutPage.infoLabels.registrationNumber')}</p>
                     <p className="text-white text-xl font-bebas">7052495749</p>
                 </div>
                 <div>
-                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">Business Status</p>
-                    <p className="text-white text-xl font-bebas">Active</p>
+                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">{t('aboutPage.infoLabels.businessStatus')}</p>
+                    <p className="text-white text-xl font-bebas">{t('aboutPage.infoLabels.active')}</p>
                 </div>
                 <div>
-                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">Issue Date</p>
-                    <p className="text-white text-xl font-bebas">11 November 2025</p>
+                    <p className="text-orange-500 font-bold text-sm uppercase tracking-wider">{t('aboutPage.infoLabels.issueDate')}</p>
+                    <p className="text-white text-xl font-bebas">{t('aboutPage.infoLabels.issueDateValue')}</p>
                 </div>
             </div>
             <p>
-              We are committed to providing trustworthy and professional services, maintaining legal compliance with government regulations, and ensuring quality and reliability in our operations. The company holds an active commercial registration certificate, verifying its legitimacy and authorization to conduct business.
+              {t('aboutPage.paragraph2')}
             </p>
           </div>
         </motion.div>

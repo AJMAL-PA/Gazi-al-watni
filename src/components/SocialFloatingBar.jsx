@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { FaWhatsapp, FaInstagram, FaYoutube, FaFacebookF, FaTimes, FaList } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function SocialFloatingBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex flex-col items-center gap-4 scale-90 md:scale-100">
@@ -16,20 +18,20 @@ export default function SocialFloatingBar() {
             transition={{ duration: 0.2 }}
             className="flex flex-col gap-3 bg-black/80 backdrop-blur-xl border border-orange-500/20 p-2 md:p-3 rounded-full shadow-[0_0_30px_rgba(234,88,12,0.15)]"
           >
-            <a href="#" title="Facebook" className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-300">
+            <a href="#" title={t('social.facebook')} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-300">
               <FaFacebookF className="w-4 h-4 md:w-5 md:h-5" />
             </a>
-            <a href="#" title="YouTube" className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-600 transition-all duration-300">
+            <a href="#" title={t('social.youtube')} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-600 transition-all duration-300">
               <FaYoutube className="w-4 h-4 md:w-5 md:h-5" />
             </a>
-            <a href="#" title="Instagram" className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-pink-600 transition-all duration-300">
+            <a href="#" title={t('social.instagram')} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-pink-600 transition-all duration-300">
               <FaInstagram className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a 
               href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
               target="_blank"
               rel="noopener noreferrer"
-              title="WhatsApp" 
+              title={t('social.whatsapp')} 
               className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-green-500 transition-all duration-300"
             >
               <FaWhatsapp className="w-5 h-5 md:w-6 md:h-6" />

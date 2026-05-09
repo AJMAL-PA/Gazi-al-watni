@@ -5,40 +5,21 @@ import service1Img from '../assets/service 1.jpeg';
 import powderCoatingImg from '../assets/powder coat.jpeg';
 import brandingImg from '../assets/branding.jpg';
 import BlurText from './BlurText';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function ServiceDetails() {
-  const services = [
-    {
-      id: '01',
-      title: 'Precision Cutting & Bending',
-      desc: 'Our state-of-the-art CNC cutting and forming technologies ensure unparalleled accuracy for high-tolerance steel shaping. We bend, cut, and shape raw materials to your exact specifications, reducing waste and accelerating project timelines.',
-      img: service1Img
-    },
-    {
-      id: '02',
-      title: 'Heavy Steel Fabrication',
-      desc: 'We specialize in robust structural assembly and heavy fabrication works for large-scale industrial projects. Our master welders and engineers deliver foundations built to withstand the most extreme environmental loads.',
-      img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
-    },
-    {
-      id: '03',
-      title: 'Industrial Powder Coating',
-      desc: 'Protect your investments with our durable, high-grade powder coating solutions. Unlike traditional paint, our coatings are baked on for a fade-proof, matte finish that feels grippy and withstands incredibly rugged use.',
-      img: brandingImg // Note: Swapped to match card state
-    },
-    {
-      id: '04',
-      title: 'Commercial Interior Solutions',
-      desc: 'Elevate your commercial space with custom metalwork and aesthetic steel solutions. From exposed steel beams to intricate architectural accents, we blend industrial strength with modern design sensibilities.',
-      img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'
-    },
-    {
-      id: '05',
-      title: 'Exhibition & Branding',
-      desc: 'Make a lasting impression with bespoke metal fabrication for structural brand installations. We build custom exhibition displays and monumental signage that visually commands attention and dominates the showroom floor.',
-      img: powderCoatingImg // Note: Swapped to match card state
-    }
-  ];
+    const { t } = useLanguage();
+    const imageMap = [
+        service1Img,
+        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
+        brandingImg,
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
+        powderCoatingImg
+    ];
+    const services = t('serviceDetails.services').map((service, idx) => ({
+        ...service,
+        img: imageMap[idx]
+    }));
 
   const [activeTab, setActiveTab] = useState(0);
 
@@ -47,15 +28,15 @@ export default function ServiceDetails() {
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
         <div className="max-w-[1400px] mx-auto px-6">
             <div className="mb-10 md:mb-16 text-center max-w-3xl mx-auto">
-                <span className="text-orange-500 font-bold tracking-widest uppercase text-xs md:text-sm">Our Capabilities</span>
+                <span className="text-orange-500 font-bold tracking-widest uppercase text-xs md:text-sm">{t('serviceDetails.badge')}</span>
                 <BlurText 
-                    text="Detailed Service Offerings"
+                    text={t('serviceDetails.title')}
                     delay={50}
                     direction="top"
                     className="text-3xl md:text-5xl lg:text-6xl font-bebas mt-4 drop-shadow-md justify-center tracking-normal"
                 />
                 <BlurText 
-                    text="End-to-end industrial steel solutions engineered for strength, precision, and durability."
+                    text={t('serviceDetails.subtitle')}
                     delay={15}
                     direction="bottom"
                     className="text-slate-400 text-base md:text-lg mt-4 md:mt-6 leading-relaxed justify-center"
@@ -91,7 +72,7 @@ export default function ServiceDetails() {
                                             to="/services"
                                             className="mt-6 px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 hover:border-orange-500/50 transition-all duration-300 shadow-lg inline-block uppercase tracking-widest text-xs"
                                         >
-                                            Know More
+                                            {t('serviceDetails.knowMore')}
                                         </Link>
                                     </motion.div>
                                 )}
@@ -125,7 +106,7 @@ export default function ServiceDetails() {
                                     to="/services"
                                     className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 hover:border-orange-500/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 uppercase tracking-widest text-sm inline-block"
                                 >
-                                    Know More About This Service
+                                    {t('serviceDetails.knowMoreAbout')}
                                 </Link>
                             </div>
                         </motion.div>

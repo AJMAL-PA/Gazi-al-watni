@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiOutlineGlobeAlt } from 'react-icons/hi';
 import logo from '../assets/logo.png';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Header() {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { t, toggleLanguage, lang } = useLanguage();
 
     // Handle scroll for navbar background
     useEffect(() => {
@@ -37,12 +39,16 @@ export default function Header() {
     }, [isMenuOpen]);
 
     const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'About', path: '/about' },
-        { name: 'Services', path: '/services' },
-        { name: 'Gallery', path: '/gallery' },
-        { name: 'Contact Us', path: '/contact' },
+        { name: t('header.nav.home'), path: '/' },
+        { name: t('header.nav.about'), path: '/about' },
+        { name: t('header.nav.services'), path: '/services' },
+        { name: t('header.nav.gallery'), path: '/gallery' },
+        { name: t('header.nav.contact'), path: '/contact' },
     ];
+
+    const toggleTitle = lang === 'ar'
+        ? t('header.languageToggle.toEnglish')
+        : t('header.languageToggle.toArabic');
 
     return (
         <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'pt-0 px-0' : 'pt-4 md:pt-6 px-4 md:px-8'}`}>
@@ -82,8 +88,18 @@ export default function Header() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden sm:flex bg-orange-600/10 backdrop-blur-md border border-orange-500/30 hover:bg-orange-600/20 hover:border-orange-500/60 transition-all duration-300 shadow-[0_0_15px_rgba(234,88,12,0.15)] hover:shadow-[0_0_20px_rgba(234,88,12,0.3)] px-6 py-3 rounded-full text-white font-inter tracking-wide uppercase text-xs font-extrabold active:scale-95 whitespace-nowrap">
-                        Get a Quote
+                        {t('header.ctaQuote')}
                     </a>
+
+                    <button
+                        type="button"
+                        onClick={toggleLanguage}
+                        title={toggleTitle}
+                        aria-label={toggleTitle}
+                        className="flex items-center justify-center w-11 h-11 rounded-full border border-orange-500/30 text-white text-xs font-bold tracking-widest bg-orange-500/10 hover:bg-orange-500/20 transition-colors shadow-[0_0_12px_rgba(234,88,12,0.25)]"
+                    >
+                        <HiOutlineGlobeAlt className="w-5 h-5" />
+                    </button>
 
                     {/* Mobile Menu Toggle */}
                     <button
@@ -113,9 +129,20 @@ export default function Header() {
                                     GAZI ALWATANI
                                 </span>
                             </div>
-                            <button onClick={() => setIsMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-xl">
-                                <HiX className="w-8 h-8" />
-                            </button>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={toggleLanguage}
+                                    title={toggleTitle}
+                                    aria-label={toggleTitle}
+                                    className="flex items-center justify-center w-10 h-10 rounded-full border border-orange-500/30 text-white bg-orange-500/10 hover:bg-orange-500/20 transition-colors"
+                                >
+                                    <HiOutlineGlobeAlt className="w-5 h-5" />
+                                </button>
+                                <button onClick={() => setIsMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-xl">
+                                    <HiX className="w-8 h-8" />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="flex flex-col gap-6">
@@ -141,11 +168,11 @@ export default function Header() {
                                 href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
                                 className="w-full bg-orange-600 text-white py-4 rounded-2xl flex items-center justify-center font-bold uppercase tracking-widest text-sm shadow-xl shadow-orange-600/20"
                             >
-                                Get a Quote
+                                {t('header.ctaQuote')}
                             </a>
                             <div className="mt-8 flex gap-6 justify-center text-slate-500">
                                 {/* Social links could go here */}
-                                <span>Follow us on social media for updates</span>
+                                <span>{t('header.mobileFollow')}</span>
                             </div>
                         </div>
                     </motion.div>

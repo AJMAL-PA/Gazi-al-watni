@@ -11,6 +11,7 @@ import GalleryPage from './pages/GalleryPage';
 import Preloader from './components/Preloader';
 import PageTransition from './components/PageTransition';
 import { AnimatePresence } from 'framer-motion';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -30,14 +31,16 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Router>
-      <Preloader />
-      <ScrollToTop />
-      <Header />
-      <AnimatedRoutes />
-      <Footer />
-      <SocialFloatingBar />
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <Preloader />
+        <ScrollToTop />
+        <Header />
+        <AnimatedRoutes />
+        <Footer />
+        <SocialFloatingBar />
+      </Router>
+    </LanguageProvider>
   );
 }
 

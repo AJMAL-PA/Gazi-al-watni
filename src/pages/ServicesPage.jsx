@@ -1,51 +1,25 @@
-import React from 'react';
 import BlurText from '../components/BlurText';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import service1Img from '../assets/service 1.jpeg';
 import powderCoatingImg from '../assets/powder coat.jpeg';
 import brandingImg from '../assets/branding.jpg';
 import SectionReveal from '../components/SectionReveal';
-
-const services = [
-  {
-    id: '01',
-    title: 'Precision Cutting & Bending',
-    desc: 'Our state-of-the-art CNC cutting and forming technologies ensure unparalleled accuracy for high-tolerance steel shaping. We bend, cut, and shape raw materials to your exact specifications, reducing waste and accelerating project timelines.',
-    details: 'Equipped with the latest laser and plasma cutting systems, we can handle materials of varying thicknesses with micro-millimeter precision. Our bending capabilities include advanced press brakes that ensure consistent angles and complex geometries for every component.',
-    img: service1Img
-  },
-  {
-    id: '02',
-    title: 'Heavy Steel Fabrication',
-    desc: 'We specialize in robust structural assembly and heavy fabrication works for large-scale industrial projects.',
-    details: 'From massive steel beams to complex industrial frameworks, our fabrication processes are designed for durability and strength. We follow strict international welding standards to ensure that every structural element can withstand extreme loads and environmental conditions.',
-    img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop'
-  },
-  {
-    id: '03',
-    title: 'Industrial Powder Coating',
-    desc: 'Protect your investments with our durable, high-grade powder coating solutions.',
-    details: 'Our powder coating facility features multi-stage cleaning and pretreatment processes to ensure maximum adhesion and corrosion resistance. We offer a wide range of colors and finishes, all baked at high temperatures to create a finish that is significantly tougher than conventional liquid paint.',
-    img: brandingImg
-  },
-  {
-    id: '04',
-    title: 'Commercial Interior Solutions',
-    desc: 'Elevate your commercial space with custom metalwork and aesthetic steel solutions.',
-    details: 'We blend functionality with high-end design. Our team works closely with architects and interior designers to create bespoke metal features, from floating staircases and decorative partitions to specialized furniture and light fixtures.',
-    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'
-  },
-  {
-    id: '05',
-    title: 'Exhibition & Branding',
-    desc: 'Make a lasting impression with bespoke metal fabrication for structural brand installations.',
-    details: 'We specialize in monumental signage and exhibition stands that demand attention. Using a combination of metal fabrication and integrated lighting solutions, we build installations that are not only structurally sound but also visually stunning.',
-    img: powderCoatingImg
-  }
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
+  const imageMap = [
+    service1Img,
+    'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
+    brandingImg,
+    'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
+    powderCoatingImg
+  ];
+  const services = t('servicesPage.services').map((service, idx) => ({
+    ...service,
+    img: imageMap[idx]
+  }));
+
   return (
     <main className="pt-32 bg-slate-950 text-white overflow-hidden">
       
@@ -56,15 +30,15 @@ export default function ServicesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-orange-500 font-tech font-bold tracking-[0.3em] uppercase text-sm">Industrial Excellence</span>
+          <span className="text-orange-500 font-tech font-bold tracking-[0.3em] uppercase text-sm">{t('servicesPage.heroBadge')}</span>
           <BlurText 
-            text="Comprehensive Steel Solutions"
+            text={t('servicesPage.heroTitle')}
             delay={50}
             direction="top"
             className="text-5xl md:text-7xl font-bebas mt-6 mb-8 justify-center tracking-[0.1em]"
           />
           <p className="text-slate-400 font-inter text-xl max-w-3xl mx-auto leading-relaxed">
-            From initial design to final installation, we provide a full spectrum of high-performance steel services tailored to meet the rigorous demands of modern industry.
+            {t('servicesPage.heroBody')}
           </p>
         </motion.div>
       </section>
@@ -99,7 +73,7 @@ export default function ServicesPage() {
               </p>
               <div className="pt-4">
                 <button className="px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 shadow-lg hover:shadow-orange-500/20 uppercase tracking-wider text-xs">
-                  Inquire About This Service
+                  {t('servicesPage.inquireService')}
                 </button>
               </div>
             </div>
@@ -110,9 +84,9 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <SectionReveal className="py-24 px-6 bg-white/5 border-y border-white/5 font-inter">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bebas tracking-[0.1em]">Ready to Start Your Project?</h2>
+          <h2 className="text-4xl md:text-5xl font-bebas tracking-[0.1em]">{t('servicesPage.ctaTitle')}</h2>
           <p className="text-slate-400 text-lg">
-            Our team of experts is standing by to help you engineer the perfect solution for your steel fabrication needs.
+            {t('servicesPage.ctaBody')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <a
@@ -121,7 +95,7 @@ export default function ServicesPage() {
               rel="noopener noreferrer"
               className="px-10 py-5 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all duration-300 shadow-[0_0_20px_rgba(234,88,12,0.3)] text-center"
             >
-              CONTACT OUR SALES TEAM
+              {t('servicesPage.ctaButton')}
             </a>
           </div>
         </div>

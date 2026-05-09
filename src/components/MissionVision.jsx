@@ -1,20 +1,23 @@
 import { motion } from 'framer-motion';
 import BlurText from './BlurText';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function MissionVision() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 bg-slate-950 text-white relative">
         <div className="max-w-[1400px] mx-auto px-6">
             <div className="mb-16 text-center max-w-3xl mx-auto">
-                <span className="text-orange-500 font-bold tracking-widest uppercase text-sm">Purpose & Direction</span>
+                <span className="text-orange-500 font-bold tracking-widest uppercase text-sm">{t('missionVision.badge')}</span>
                 <BlurText 
-                    text="Our Driving Force"
+                    text={t('missionVision.title')}
                     delay={50}
                     direction="top"
                     className="text-4xl md:text-5xl lg:text-6xl font-bebas mt-4 drop-shadow-md justify-center tracking-normal"
                 />
                 <BlurText 
-                    text="Discover the core principles that guide our everyday operations and shape our long-term ambitions in the global steel industry."
+                    text={t('missionVision.description')}
                     delay={15}
                     direction="bottom"
                     className="text-slate-400 font-inter text-lg mt-6 leading-relaxed justify-center"
@@ -40,10 +43,10 @@ export default function MissionVision() {
                             </svg>
                         </div>
                         
-                        <h2 className="text-3xl md:text-4xl font-bebas mb-6 tracking-normal">Our Mission</h2>
+                        <h2 className="text-3xl md:text-4xl font-bebas mb-6 tracking-normal">{t('missionVision.missionTitle')}</h2>
                         
                         <p className="text-slate-400 text-lg leading-relaxed">
-                            To engineer the foundations of modern trade by delivering structural steel fabrication and precision metal works of uncompromising quality. We strive to provide transparent, durable, and sustainable solutions that empower global infrastructure projects and exceed our clients' most rigorous demands.
+                            {t('missionVision.missionBody')}
                         </p>
                     </div>
                 </motion.div>
@@ -66,10 +69,10 @@ export default function MissionVision() {
                             </svg>
                         </div>
                         
-                        <h2 className="text-3xl md:text-4xl font-bebas mb-6 tracking-normal">Our Vision</h2>
+                        <h2 className="text-3xl md:text-4xl font-bebas mb-6 tracking-normal">{t('missionVision.visionTitle')}</h2>
                         
                         <p className="text-slate-400 text-lg leading-relaxed">
-                            To be the vanguard of industrial metal innovation, universally recognized as the most trusted partner in large-scale fabrication. We envision a future where our sustainable manufacturing technologies set the global standard for safety, resilience, and architectural excellence.
+                            {t('missionVision.visionBody')}
                         </p>
                     </div>
                 </motion.div>

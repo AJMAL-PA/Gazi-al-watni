@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import BlurText from '../components/BlurText';
 import SectionReveal from '../components/SectionReveal';
 import { FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+  const subjectOptions = t('contactPage.form.subjectOptions');
+
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('Custom Fabrication');
+  const [subject, setSubject] = useState(subjectOptions[0]?.value || 'custom-fabrication');
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!fullName.trim() || !message.trim()) {
-      alert("Please fill in both your name and message before sending.");
+      alert(t('contactPage.form.alertMissing'));
       return;
     }
 
+    const subjectLabel = subjectOptions.find((option) => option.value === subject)?.label || subject;
+
     const formattedMessage = encodeURIComponent(
-      `*New Inquiry via Website* 🌐\n\n` +
-      `👤 *Name:* ${fullName}\n` +
-      `📧 *Email:* ${email || 'Not provided'}\n` +
-      `📁 *Subject:* ${subject}\n\n` +
-      `💬 *Message:*\n${message}`
+      t('contactPage.form.whatsappTemplate', {
+        name: fullName,
+        email: email || t('contactPage.form.notProvided'),
+        subject: subjectLabel,
+        message
+      })
     );
     
     const whatsappUrl = `https://wa.me/966531104409?text=${formattedMessage}`;
@@ -42,16 +48,16 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
         >
           <span className="text-orange-500 font-bold tracking-[0.4em] uppercase text-xs border border-orange-500/30 rounded-full px-4 py-1.5 bg-orange-500/5">
-            Connect With Us
+            {t('contactPage.heroBadge')}
           </span>
           <BlurText 
-            text="Forge a Partnership"
+            text={t('contactPage.heroTitle')}
             delay={50}
             direction="top"
             className="text-5xl md:text-7xl font-bebas mt-8 mb-6 justify-center tracking-[0.1em]"
           />
           <p className="text-slate-400 font-inter text-xl max-w-3xl mx-auto leading-relaxed">
-            Ready to elevate your industrial projects with precision steel solutions? Our team is standing by to discuss your specifications.
+            {t('contactPage.heroBody')}
           </p>
         </motion.div>
       </section>
@@ -70,7 +76,7 @@ export default function ContactPage() {
               <div className="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors">
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">mail</span>
               </div>
-              <h3 className="text-xl font-bebas mb-2 tracking-widest">Email Us</h3>
+              <h3 className="text-xl font-bebas mb-2 tracking-widest">{t('contactPage.info.emailUs')}</h3>
               <p className="text-slate-400 font-inter text-sm leading-relaxed">gazialwatani@gmail.com</p>
             </div>
 
@@ -78,7 +84,7 @@ export default function ContactPage() {
               <div className="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors">
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">call</span>
               </div>
-              <h3 className="text-xl font-bebas mb-2 tracking-widest">Call Us</h3>
+              <h3 className="text-xl font-bebas mb-2 tracking-widest">{t('contactPage.info.callUs')}</h3>
               <p className="text-slate-400 font-inter text-sm leading-relaxed">+966 53 110 4409</p>
             </div>
 
@@ -86,38 +92,38 @@ export default function ContactPage() {
               <div className="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors">
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">location_on</span>
               </div>
-              <h3 className="text-xl font-bebas mb-2 tracking-widest">Visit Our Facility</h3>
+              <h3 className="text-xl font-bebas mb-2 tracking-widest">{t('contactPage.info.visitFacility')}</h3>
               <p className="text-slate-400 font-inter text-sm leading-relaxed">
-                Saudi Arabia<br/>
-                Ministry of Commerce Registered
+                {t('contactPage.locationLine1')}<br/>
+                {t('contactPage.locationLine2')}
               </p>
             </div>
           </div>
 
           {/* Social Links */}
           <div className="p-8 bg-white/5 border border-white/10 rounded-3xl">
-            <h3 className="text-xl font-bebas mb-6 tracking-widest text-orange-500">Follow Our Progress</h3>
+            <h3 className="text-xl font-bebas mb-6 tracking-widest text-orange-500">{t('contactPage.info.followProgress')}</h3>
             <div className="flex gap-4">
               <a 
                 href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20am%20interested%20in%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-500 hover:border-green-500 transition-all duration-300 group"
-                title="WhatsApp"
+                title={t('social.whatsapp')}
               >
                 <FaWhatsapp className="text-xl" />
               </a>
               <a 
                 href="#" 
                 className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 hover:border-transparent transition-all duration-300 group"
-                title="Instagram"
+                title={t('social.instagram')}
               >
                 <FaInstagram className="text-xl" />
               </a>
               <a 
                 href="#" 
                 className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 group"
-                title="Facebook"
+                title={t('social.facebook')}
               >
                 <FaFacebookF className="text-xl" />
               </a>
@@ -140,57 +146,56 @@ export default function ContactPage() {
           className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 blur-3xl -mr-16 -mt-16"></div>
-          <h2 className="text-3xl font-bebas mb-8 tracking-widest">Send an Inquiry</h2>
+          <h2 className="text-3xl font-bebas mb-8 tracking-widest">{t('contactPage.formTitle')}</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Full Name</label>
+                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">{t('contactPage.form.fullName')}</label>
                 <input 
                   type="text" 
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" 
-                  placeholder="John Doe" 
+                  placeholder={t('contactPage.form.placeholderName')} 
                   required
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Email Address</label>
+                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">{t('contactPage.form.email')}</label>
                 <input 
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors" 
-                  placeholder="john@example.com" 
+                  placeholder={t('contactPage.form.placeholderEmail')} 
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Subject</label>
+              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">{t('contactPage.form.subject')}</label>
               <select 
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors appearance-none"
               >
-                <option className="bg-slate-900" value="Custom Fabrication">Custom Fabrication</option>
-                <option className="bg-slate-900" value="Structural Steel">Structural Steel</option>
-                <option className="bg-slate-900" value="Powder Coating">Powder Coating</option>
-                <option className="bg-slate-900" value="Other Inquiry">Other Inquiry</option>
+                {subjectOptions.map((option) => (
+                  <option key={option.value} className="bg-slate-900" value={option.value}>{option.label}</option>
+                ))}
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">Your Message</label>
+              <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 ml-2">{t('contactPage.form.message')}</label>
               <textarea 
                 rows="4" 
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-orange-500/50 outline-none transition-colors resize-none" 
-                placeholder="How can we help you?"
+                placeholder={t('contactPage.form.placeholderMessage')}
                 required
               ></textarea>
             </div>
             <button type="submit" className="w-full py-5 bg-orange-600 hover:bg-orange-700 text-white font-bebas text-xl tracking-[0.2em] rounded-2xl transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] active:scale-95">
-              Send Message
+              {t('contactPage.form.send')}
             </button>
           </form>
         </motion.div>
@@ -199,7 +204,7 @@ export default function ContactPage() {
       {/* Map/Facility Section placeholder */}
       <SectionReveal className="py-24 px-6 max-w-7xl mx-auto">
         <div className="h-[400px] bg-white/5 border border-white/10 rounded-[3rem] flex items-center justify-center text-slate-500 font-inter italic">
-          [Interactive Facility Map Placeholder]
+          {t('contactPage.mapPlaceholder')}
         </div>
       </SectionReveal>
 
@@ -207,8 +212,8 @@ export default function ContactPage() {
       <SectionReveal className="py-24 px-6 border-t border-white/5 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center relative">
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          <span className="text-orange-500 font-inter uppercase tracking-[0.3em] text-sm block">Hire Us Now</span>
-          <h2 className="text-4xl md:text-6xl font-bebas leading-tight tracking-[0.1em]">We Are Always Ready To<br/><span className="text-orange-600">Forge Your Success</span></h2>
+          <span className="text-orange-500 font-inter uppercase tracking-[0.3em] text-sm block">{t('contactPage.ctaBadge')}</span>
+          <h2 className="text-4xl md:text-6xl font-bebas leading-tight tracking-[0.1em]">{t('contactPage.ctaTitleLine1')}<br/><span className="text-orange-600">{t('contactPage.ctaTitleHighlight')}</span></h2>
           <div className="pt-4">
             <a
               href="https://wa.me/966531104409?text=Hello%20Gazi%20Alwatani%2C%20I%20would%20like%20to%20contact%20you%20regarding%20your%20services."
@@ -216,7 +221,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="inline-block px-12 py-5 bg-white text-slate-950 font-bebas uppercase tracking-[0.2em] rounded-full hover:bg-orange-600 hover:text-white transition-all shadow-2xl"
             >
-              Contact Us
+              {t('contactPage.ctaButton')}
             </a>
           </div>
         </div>
