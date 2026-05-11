@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-orange-500 group-hover:text-white">mail</span>
               </div>
               <h3 className="text-xl font-bebas mb-2 tracking-widest">{t('contactPage.info.emailUs')}</h3>
-              <p className="text-slate-400 font-inter text-sm leading-relaxed">gazialwatani@gmail.com</p>
+              <p className="text-slate-400 font-inter text-sm leading-relaxed">gazialwataniest@gmail.com</p>
             </div>
 
             <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-orange-500/30 transition-colors group">
